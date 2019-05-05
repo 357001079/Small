@@ -1,0 +1,82 @@
+<!-- pages/components/like/like.wxml -->
+<!-- <text>pages/components/like/like.wxml</text> -->
+<!-- pages/like/like.wxml -->
+<view>
+  <view class='user'>
+    <image src='../../../img/3.喜欢2.gif' style='width:100%;height:100%;height:70%'></image>
+    <view class='name'>
+      <image src='../../../img/满心.png' style='width:150rpx;height:150rpx;border-radius:50%'></image>
+      <text>wangge</text>
+    </view>
+    <view class='message'>
+      <view style='width:200rpx;height:100%;text-align: center;'>
+        <image src='../../../img/3.喜欢2.png' style='width:50rpx;height:50rpx'></image>
+        <view style='font-size:30rpx'>关于我们</view>
+      </view>
+      <view style='width:200rpx;height:100%;text-align: center;'>
+        <view style='font-size:45rpx'>{{ book.count }}</view>
+        <view style='font-size:30rpx'>我的书单</view>
+      </view>
+    </view>
+  </view>
+  <view class='likelist'>
+    <view style='width:100%;height:60rpx;text-align:center;margin-top:20rpx'>喜欢</view>
+    <view class='booklist' wx:for="{{ journal }}" wx:for-item="item" wx:key="journal">
+      <view class='top'>
+        <view >
+          <view wx:if="{{journal.type==100}}">电影</view>
+          <view wx:if="{{journal.type==200}}">音乐</view>
+          <view wx:if="{{journal.type==300}}">句子</view>
+        </view>
+        <view style='display:flex;'>
+          <image src='../../../img/满心.png' style='width:40rpx;height:40rpx;margin-top:25rpx;'></image>
+          <view style='font-size:20rpx;margin-top:22rpx;margin-right:30rpx;'>{{ item.fav_nums }}</view>
+        </view>
+      </view>
+      <image wx:if="{{journal.type==200}}" src='{{ item.image }}' style='width:100%;height:52%;border-radius:50%; '></image>
+      <image wx:if="{{journal.type!=200}}" src='{{ item.image }}' style='width:100%;height:52%'></image>
+      <view style='width:100%;font-size:28rpx;color:#999999;margin-top:15rpx'>
+        {{ item.content }}
+      </view>
+    </view>
+    <!-- <view class='booklist'>
+      <view class='top'>
+        <view class='dian'>电影</view>
+        <view style='display:flex;padding"20rpx'>
+          <image src='../../../img/满心.png' style='width:40rpx;height:40rpx;'></image>
+          <view style='font-size:20rpx'>1312</view>
+        </view>
+      </view>
+      <image src='../../../img/3.喜欢3.png' style='width:100%;height:55%'></image>
+      <view style='width:100%;font-size:28rpx;color:#999999;margin-top:15rpx'>
+        有的人浅薄，有的人金玉其表，败絮其中。有...
+      </view>
+    </view> -->
+    <!-- <view class='booklist'>
+      <view class='top'>
+        <view class='dian'>电影</view>
+        <view style='display:flex;padding"20rpx'>
+          <image src='../../../img/满心.png' style='width:40rpx;height:40rpx;'></image>
+          <view style='font-size:20rpx'>1312</view>
+        </view>
+      </view>
+      <image src='../../../img/3.喜欢3.png' style='width:100%;height:55%'></image>
+      <view style='width:100%;font-size:28rpx;color:#999999;margin-top:15rpx'>
+        有的人浅薄，有的人金玉其表，败絮其中。有...
+      </view>
+    </view> -->
+    <!-- <view class='booklist'>
+      <view class='top'>
+        <view class='dian'>电影</view>
+        <view style='display:flex;padding"20rpx'>
+          <image src='../../../img/满心.png' style='width:40rpx;height:40rpx;'></image>
+          <view style='font-size:20rpx'>1312</view>
+        </view>
+      </view>
+      <image src='../../../img/3.喜欢3.png' style='width:100%;height:55%'></image>
+      <view style='width:100%;font-size:28rpx;color:#999999;margin-top:15rpx'>
+        有的人浅薄，有的人金玉其表，败絮其中。有...
+      </view>
+    </view> -->
+  </view>
+</view>

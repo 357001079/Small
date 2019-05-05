@@ -1,0 +1,20 @@
+<!-- pages/components/book/book_search/search.wxml -->
+<!-- <text>pages/components/book/book_search/search.wxml</text> -->
+<view class="box">
+    <view class="inp">
+        <input bindinput="value" placeholder='搜索图书名称'></input>
+        <icon type='search' size='18'></icon>
+        <button bindtap='cancel'>取消</button>
+    </view>
+    <view class="history">
+        <view>历史搜索</view>
+    </view>
+    <view class="history">
+        <view>热门搜索</view>
+        <view>
+            <view wx:for="{{popular}}" wx:key="popular" wx:for-item="itme">
+                {{itme}}
+            </view>
+        </view>
+    </view>
+</view>

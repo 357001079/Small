@@ -1,0 +1,53 @@
+<!-- pages/components/book/book_details/details.wxml -->
+<!-- <text>pages/components/book/book_details/details.wxml</text> -->
+<view class="box">
+    <view class="logo">
+        <view>
+            <icon type='search' size='18'></icon>
+            <input placeholder='搜索图书名称' bindtap='search'></input>
+        </view>
+    </view>
+    <view class="grey"></view>
+    <view class="book">
+        <image src="{{ xinxi.image }}" />
+        <text>{{ xinxi.title }}</text>
+        <text>{{ xinxi.author }}</text>
+    </view>
+    <view class="grey"></view>
+    <view class="essay">
+        <text>短评</text>
+        <view class='center'>
+            <view wx:for="{{essay}}" wx:key="index">
+                {{item.content}}
+                <text style='margin-left:20rpx'>+{{item.nums}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="grey"></view>
+    <view class="brief">
+        <view>简介</view>
+        <view>{{ xinxi.summary }}</view>
+    </view>
+    <view class="grey"></view>
+    <view class="brief">
+        <view>本书信息</view>
+        <view>
+            <view>出版社: {{ xinxi.publisher}}</view>
+            <view>出版年: {{ xinxi.pubdate}}</view>
+            <view>页数: {{ xinxi.pages }}</view>
+            <view>定价: {{ xinxi.price }}</view>
+            <view>精装:  {{ xinxi.binding }}</view>
+            <view>类型:  {{ xinxi.category }}</view>
+        </view>
+    </view>
+    <view class="foote"></view>
+    <view class="footer">
+        <input class="ipt" type="text" placeholder='🖊留下你的短评~' />
+        <view>
+            <image wx:if="{{ booklike.like_status==0 }}" src='../../../../img/空心.png'></image>
+            <image wx:if="{{ booklike.like_status==1 }}" src='../../../../img/满心.png'></image>
+            <text>{{ booklike.fav_nums }}</text>
+        </view>
+        <image src="../../../../img/分享.png" />
+    </view>
+</view>

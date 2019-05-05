@@ -1,0 +1,28 @@
+<!-- pages/components/book/book.wxml -->
+<!-- <text>pages/components/book/book.wxml</text> -->
+<!-- <button bindtap="dianji">点击</button> -->
+<view class="box">
+  <view class="logo">
+    <view>
+      <icon type='search' size='18'></icon>
+      <input bindtap='search' placeholder='搜索图书名称' ></input>
+    </view>
+  </view>
+  <view class="section">
+    <view>精选</view>
+    <view class="section_list">
+      <view wx:for="{{xinxi}}" wx:key="xinxi" wx:for-item="itme" class="list" bindtap='details' data-id='{{itme.id}}'>
+        <view>
+          <image src="{{ itme.image }}"></image>
+        </view>
+        <view class="list_a">
+          <view>
+            <text>{{ itme.title }}</text>
+            <text>{{ itme.author }}</text>
+          </view>
+          <view>{{ itme.fav_nums }} 喜欢 · 68 短评</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

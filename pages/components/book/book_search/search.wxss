@@ -1,0 +1,63 @@
+/* pages/components/book/book_search/search.wxss */
+.inp{
+    width: 100%;
+    height: 110rpx;
+    border-top: 1rpx solid #f7f7f7;
+    border-bottom: 1rpx solid #f7f7f7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.inp>input{
+    margin: 0;
+    padding: 0;
+    width: 530rpx;
+    height: 70rpx;
+    background: #f7f7f7;
+    border-radius: 50rpx;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    position: relative;
+    padding-left: 60rpx;
+}
+.inp>icon{
+    /* width:30rpx;
+    height: 30rpx; */
+    position: absolute;
+    left: 35rpx;
+    /* top: 0rpx; */
+}
+.inp>button{
+    width: 120rpx;
+    height: 70rpx;
+    border: 1px solid #b6b6b6;
+    background: none;
+    border-radius: 50rpx;
+    font-size: 28rpx;
+}
+.history{
+    width: 80%;
+    min-height: 200rpx;
+    margin: 0 auto;
+}
+.history>view:nth-of-type(1){
+    width: 160rpx;
+    height: 30rpx;
+    font-size: 25rpx;
+    margin-top: 40rpx;
+    padding-left: 20rpx; 
+    border-left: 10rpx solid black;
+}
+.history>view:nth-of-type(2){
+    display: flex;
+    flex-wrap: wrap;
+}
+.history>view:nth-of-type(2)>view{
+    color: #969696;
+    font-size: 30rpx;
+    padding: 10rpx;
+    margin: 10rpx;
+    background: whitesmoke;
+    text-align: center;
+    /* border-radius: 35rpx; */
+}

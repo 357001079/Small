@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/components/popular/popular",
+    "pages/components/book/book", 
+    "pages/components/like/like",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/components/book/book_details/details",
+    "pages/components/book/book_search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "你家王哥",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/components/popular/popular",
+        "text": "流行",
+        "iconPath": "img/流行1.png",
+        "selectedIconPath": "img/流行2.png"
+      },
+      {
+        "pagePath": "pages/components/book/book",
+        "text": "书单",
+        "iconPath": "img/书单1.png",
+        "selectedIconPath": "img/书单2.png"
+      },
+      {
+        "pagePath": "pages/components/like/like",
+        "text": "喜欢",
+        "iconPath": "img/喜欢1.png",
+        "selectedIconPath": "img/喜欢2.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
