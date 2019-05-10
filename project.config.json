@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -59,6 +59,13 @@
 				{
 					"id": -1,
 					"name": "search",
+					"pathName": "pages/components/book/book_search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
 					"pathName": "pages/components/book/book_search/search",
 					"scene": null
 				}

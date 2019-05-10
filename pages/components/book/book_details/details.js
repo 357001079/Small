@@ -15,6 +15,13 @@ Page({
       url: '../book_search/search'
     })
   },
+  //增加短评
+  add(e){
+    console.log(e.detail.value)
+    index.Add(e.detail.value,res=>{
+      console.log(res)
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

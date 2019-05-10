@@ -1,37 +1,42 @@
-// pages/components/like/like.js
-import { IndexModel } from '../../../models/like'
+// pages/components/like/like_detailed/detailed.js
+import { IndexModel } from '../../../../models/like'
 let index = new IndexModel() // 导入对应的model
+
+//获取音乐
+const innerAudioContext = wx.createInnerAudioContext();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    hiddenName: true,
   },
-
-  detailed(e){
-    index.detailed(e,res=>{})
-    wx.navigateTo({
-      url:'./like_detailed/detailed'
+  //播放
+  audioPlay() {
+    innerAudioContext.src = this.data.xinxi.url
+    innerAudioContext.play();
+    this.setData({
+      hiddenName: !this.data.hiddenName
     })
   },
+  //暂停
+  audioStop() {
+    innerAudioContext.pause();
+    this.setData({
+      hiddenName: !this.data.hiddenName
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取喜欢书籍数量
-    index.likeBook(res=>{
+    index.likeDetail(res => {
       // console.log(res)
       this.setData({
-        book:res
-      })
-    })
-    // 获取我喜欢的期刊
-    index.likeJournal(res => {
-      // console.log(res)
-      this.setData({
-        journal:res
+        xinxi: res
       })
     })
   },

@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/components/popular/popular",
-    "pages/components/book/book", 
+    "pages/components/book/book",
     "pages/components/like/like",
     "pages/index/index",
     "pages/logs/logs",
     "pages/components/book/book_details/details",
-    "pages/components/book/book_search/search"
+    "pages/components/book/book_search/search",
+    "pages/components/like/like_detailed/detailed"
   ],
   "window": {
     "backgroundTextStyle": "dark",

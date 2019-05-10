@@ -7,6 +7,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
 }
 .inp>input{
     margin: 0;
@@ -60,4 +64,33 @@
     background: whitesmoke;
     text-align: center;
     /* border-radius: 35rpx; */
+}
+
+/*  */
+/* .result{
+    width: 100%;
+} */
+.search{
+    width: 92%;
+    height: 140rpx;
+    /* background: pink; */
+    border-bottom: 1rpx solid #eeeeee;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.search>cover-image{
+    width: 70rpx;
+    height: 90rpx;
+    margin-left: 20rpx;
+}
+.search>.text{
+    margin-left: 25rpx;
+}
+.search>.text>view{
+    font-size: 33rpx;
+}
+.search>.text>text{
+    font-size: 22rpx;
+    color: #c2c2c2;
 }

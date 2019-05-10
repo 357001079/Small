@@ -42,7 +42,7 @@
     </view>
     <view class="foote"></view>
     <view class="footer">
-        <input class="ipt" type="text" placeholder='🖊留下你的短评~' />
+        <input class="ipt" type="text" placeholder='🖊留下你的短评~' bindconfirm="add"/>
         <view>
             <image wx:if="{{ booklike.like_status==0 }}" src='../../../../img/空心.png'></image>
             <image wx:if="{{ booklike.like_status==1 }}" src='../../../../img/满心.png'></image>

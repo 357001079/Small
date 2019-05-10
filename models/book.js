@@ -12,7 +12,7 @@ class IndexModel extends HTTP {
             }
         })
     };
-    // 获取书籍详细信息
+    // 获取书籍详细信息//搜索详情
     details(callBack) {
        let id= wx.getStorageSync('index')
     //    console.log(id)
@@ -20,7 +20,6 @@ class IndexModel extends HTTP {
             url: '/book/' + id + '/detail',
             success: res => {
                 callBack(res)
-                // book_id=res.book_id
             }
         })
     };
@@ -48,7 +47,10 @@ class IndexModel extends HTTP {
     //书籍搜索
     bookSearch(val,callBack){
         this.request({
-            url:'book/search'+'?'+val,
+            url:'book/search',
+            data:{
+                q:val
+            },
             success:res=>{
                 callBack(res)
             }
@@ -58,6 +60,21 @@ class IndexModel extends HTTP {
     popular(callBack){
         this.request({
             url:'https://www.easy-mock.com/mock/5a52256ad408383e0e3868d7/lagou/hot',
+            success:res=>{
+                callBack(res)
+            }
+        })
+    }
+    //新增短评
+    Add(val,callBack){
+        let book_id= wx.getStorageSync('index')
+        this.request({
+            url:'book/add/short_comment',
+            method:'post',
+            data:{
+                book_id:book_id,
+                content:val
+            },
             success:res=>{
                 callBack(res)
             }

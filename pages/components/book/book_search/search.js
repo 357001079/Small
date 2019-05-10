@@ -7,26 +7,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    length: 0
   },
+  //书籍搜索
   value: function (e) {
     var val = e.detail.value;
-    this.setData({
-      value: val
-    });
-    //书籍搜索
-    index.bookSearch(this.data.value, res => {
-      console.log(res)
+    if (val != '') {
+      index.bookSearch(val, res => {
+        // console.log(res)
+        if (res.books.length != 0) {
+          this.setData({
+            bookSearch: res.books,
+            length: 2,
+            val: val
+          })
+        } else {
+          this.setData({
+            length: 1
+          })
+        }
+      })
+    } else {
+      this.setData({
+        length: 0
+      })
+    }
+  },
+  //搜索详情
+  detail(e){
+    // console.log(e.currentTarget.dataset.id)
+    //本地存储
+    wx.setStorage({
+      key:"index",
+      data:e.currentTarget.dataset.id
+    })
+    wx.navigateTo({
+      url: '/pages/components/book/book_details/details'
     })
   },
   //取消
   cancel() {
-    wx.redirectTo({
-      url: '/book/book'
+    console.log(11)
+    wx.switchTab({
+      url: '../../book/book'
     })
-    // wx:wx.navigateTo({
-    //   url: 'book/book'
-    // })
   },
 
   /**
@@ -40,9 +64,9 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success:res=>{
+      success: res => {
         this.setData({
-          popular:res.data.data.hot
+          popular: res.data.data.hot
         })
         // console.log(this.data.popular)
       }
@@ -53,7 +77,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**

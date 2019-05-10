@@ -1,6 +1,8 @@
 // pages/components/book/book.js
 //获取应用实例
-import { IndexModel } from '../../../models/book'
+import {
+  IndexModel
+} from '../../../models/book'
 let index = new IndexModel() // 导入对应的model
 
 Page({
@@ -9,10 +11,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    loadingHidden: true
   },
   //搜索
-  search(e){
+  search(e) {
     wx.navigateTo({
       url: './book_search/search'
     })
@@ -22,9 +24,20 @@ Page({
     // console.log(e.currentTarget.dataset.id)
     //本地存储
     wx.setStorage({
-      key:"index",
-      data:e.currentTarget.dataset.id
+      key: "index",
+      data: e.currentTarget.dataset.id
     })
+
+    this.setData({
+      loadingHidden: false
+    })
+    var that = this;
+    setTimeout(function() {
+      that.setData({
+        loadingHidden: true
+      })
+    }, 1100)
+
     wx.navigateTo({
       url: '/pages/components/book/book_details/details'
     })
@@ -33,7 +46,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     //获取热门书籍（概要）
     index.getDataList((res) => { // 调用获取到返回的数据res
       // console.log(res)
@@ -46,49 +59,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

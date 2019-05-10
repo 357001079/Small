@@ -12,19 +12,19 @@
       </view>
     </view>
     <view class='banner2'>
-      <view bindtap='like'>
-        <cover-image wx:if="{{ xinxi.like_status==0 }}" src='../../../img/空心.png'></cover-image>
-        <cover-image wx:if="{{ xinxi.like_status==1 }}" src='../../../img/满心.png'></cover-image>
+      <view>
+        <cover-image src='../../../img/空心.png' bindtap="fnZan" data-id="{{xinxi.id}}" data-reply-type="{{xinxi.type}}" wx:if="{{!give}}"></cover-image>
+        <cover-image src='../../../img/满心.png' bindtap="fnZan" data-id="{{xinxi.id}}" data-reply-type="{{xinxi.type}}" wx:if="{{give}}"></cover-image>
       </view>
-      <text>{{ xinxi.fav_nums }}</text>
+      <text>{{ fav_nums }}</text>
       <cover-image src='../../../img/分享.png'></cover-image>
-    </view> 
+    </view>
   </view>
   <view class="image" wx:if="{{xinxi.type!=200}}">
     <image src="{{ xinxi.image }}" />
   </view>
   <view class="image" wx:if="{{xinxi.type==200}}">
-    <image src="{{ xinxi.image }}" style="width:66%; border-radius: 50%;"/>
+    <image src="{{ xinxi.image }}" style="width:66%; border-radius: 50%;" />
     <view class="image1">
       <cover-image src="../../../img/播放.png" bindtap="audioPlay" hidden="{{!hiddenName}}"></cover-image>
       <cover-image src="../../../img/暂停.png" bindtap="audioStop" hidden="{{hiddenName}}"></cover-image>

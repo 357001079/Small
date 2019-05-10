@@ -16,6 +16,8 @@ Page({
    */
   data: {
     hiddenName: true,
+    give: 1,
+    fav_nums:''
   },
 
 
@@ -25,7 +27,9 @@ Page({
     last.lastlist((res) => { // 调用获取到返回的数据res
       // console.log(res)
       this.setData({
-        xinxi: res
+        xinxi: res,
+        give: res.like_status,
+        fav_nums:res.fav_nums
       })
     })
   },
@@ -34,27 +38,37 @@ Page({
     next.nextlist((res) => { // 调用获取到返回的数据res
       // console.log(res)
       this.setData({
-        xinxi: res
+        xinxi: res,
+        give: res.like_status,
+        fav_nums:res.fav_nums
       })
     })
   },
-  //点赞
-  like: function () {
-    index.likelist((res)=>{
-      console.log(res)
-    })
-
-    // wx.request({
-    //   url: "http://bl.7yue.pro/v1/like",
-    //   method: "POST",
-    //   appkey: '5ZbxAY1FmDNQP1T1',
-    //   header: {
-    //     "Content-Type": "application/x-www-form-urlencoded"
-    //   },
-    //   success: function (res) {
-    //     console.log(res)
-    //   }
-    // })
+  // //点赞
+  fnZan: function (ev) {
+    // console.log(ev)
+    wx.setStorageSync("ev", { art_id: ev.currentTarget.dataset.id, type: ev.currentTarget.dataset.replyType })
+    if (!this.data.give) {
+      index.likeList((res) => {
+        // console.log(res)
+        if (!res.error_code) {
+          this.setData({
+            give: !this.data.give,
+            fav_nums:this.data.fav_nums+1
+          })
+        }
+      })
+    } else {
+      index.disLikeList((res) => {
+        // console.log(res)
+        if (!res.error_code) {
+          this.setData({
+            give: !this.data.give,
+            fav_nums:this.data.fav_nums-1
+          })
+        }
+      })
+    }
   },
   //播放
   audioPlay() {
@@ -77,10 +91,11 @@ Page({
   onLoad: function (options) {
     // 获取最新一期
     index.getDataList((res) => { // 调用获取到返回的数据res
-      console.log(res)
-      // this.data.xinxi=res
+      // console.log(res)
       this.setData({
-        xinxi: res
+        xinxi: res,
+        give: res.like_status,
+        fav_nums:res.fav_nums
       })
     });
   },

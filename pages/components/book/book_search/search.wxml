@@ -2,19 +2,37 @@
 <!-- <text>pages/components/book/book_search/search.wxml</text> -->
 <view class="box">
     <view class="inp">
-        <input bindinput="value" placeholder='搜索图书名称'></input>
+        <input bindconfirm="value" placeholder='搜索图书名称'></input>
         <icon type='search' size='18'></icon>
         <button bindtap='cancel'>取消</button>
     </view>
-    <view class="history">
-        <view>历史搜索</view>
-    </view>
-    <view class="history">
-        <view>热门搜索</view>
-        <view>
-            <view wx:for="{{popular}}" wx:key="popular" wx:for-item="itme">
-                {{itme}}
+    <view wx:if="{{length==0}}" style="margin-top:120rpx;">
+        <view class="history">
+            <view>历史搜索</view>
+        </view>
+        <view class="history">
+            <view>热门搜索</view>
+            <view>
+                <view wx:for="{{popular}}" wx:key="popular" wx:for-item="itme">{{itme}}</view>
             </view>
         </view>
+    </view>
+    <!-- 搜索结果 -->
+    <view wx:if="{{length>1}}" style="margin-top:120rpx;">
+        <view 
+                class="search" 
+                wx:for="{{bookSearch}}" 
+                wx:key="bookSearch" 
+                data-id='{{item.id}}'
+                bindtap='detail'>
+            <cover-image src="{{ item.image }}"></cover-image>
+            <view class="text">
+                <view>{{ item.title }}</view>
+                <text>{{ item.translator }}</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{length==1}}" style="text-align:center;margin-top:30rpx;margin-top:120rpx;">
+        暂无数据
     </view>
 </view>

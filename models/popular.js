@@ -1,7 +1,5 @@
 import { HTTP } from '../utils/http'
 let index = ""
-let art_id = ''
-let type = ''
 // 通过extends继承父类（也可以实例化后调用）
 class IndexModel extends HTTP {
     //获取最新一期
@@ -12,8 +10,6 @@ class IndexModel extends HTTP {
                 callBack(res)
                 // console.log(callBack)
                 index = res.index
-                art_id = res.id
-                type = res.type
             }
         })
     };
@@ -25,8 +21,6 @@ class IndexModel extends HTTP {
             success: res => {
                 nuu(res)
                 index = res.index
-                art_id = res.id
-                type = res.type
             }
         })
     };
@@ -38,30 +32,34 @@ class IndexModel extends HTTP {
             success: res => {
                 nuu(res)
                 index = res.index
-                art_id = res.id
-                type = res.type
             }
         })
     };
     // 进行点赞
-    likelist(callBack) {
-        console.log(callBack)
+    likeList(callBack) {
+        let ev =wx.getStorageSync('ev')
+        // console.log(ev)
         this.request({
             url: 'like',
             method: 'POST',
-            data: {
-                'art_id': art_id,
-                'type': type
-            },
-            header: {
-                'content-type': 'application/x-www-form-urlencoded', // 默认值
-                'appkey':'5ZbxAY1FmDNQP1T1'
-            },
+            data:ev,
             success: res => {
                 callBack(res)
             }
         })
     };
+    //取消点赞
+    disLikeList(callBack){
+        let ev=wx.getStorageSync('ev');
+        this.request({
+            url:'like/cancel',
+            method: 'POST',
+            data:ev,
+            success: res => {
+                callBack(res)
+            }
+        })
+    }
 }
 
 export { IndexModel }

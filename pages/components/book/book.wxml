@@ -1,11 +1,8 @@
-<!-- pages/components/book/book.wxml -->
-<!-- <text>pages/components/book/book.wxml</text> -->
-<!-- <button bindtap="dianji">点击</button> -->
 <view class="box">
   <view class="logo">
     <view>
       <icon type='search' size='18'></icon>
-      <input bindtap='search' placeholder='搜索图书名称' ></input>
+      <input bindtap='search' placeholder='搜索图书名称'></input>
     </view>
   </view>
   <view class="section">
@@ -25,4 +22,8 @@
       </view>
     </view>
   </view>
+
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
 </view>
